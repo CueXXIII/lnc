@@ -76,7 +76,7 @@ void simulate() {
 
 static Camera camera = Camera(/*Position:*/{ 0.0f, 0.5f, 1.0f });
 
-static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+static void keyCallback(GLFWwindow* window, int key, [[maybe_unused]] int scancode, int action, [[maybe_unused]] int mods) {
 
     if (action == GLFW_PRESS)
     {
@@ -126,12 +126,12 @@ static void keyCallback(GLFWwindow* window, int key, int scancode, int action, i
     }
 }
 
-static void cursorPositionCallback(GLFWwindow* window, double xPosition, double yPosition)
+static void cursorPositionCallback([[maybe_unused]] GLFWwindow* window, double xPosition, double yPosition)
 {
     camera.mouseMove(xPosition, yPosition);
 }
 
-static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+static void mouseButtonCallback([[maybe_unused]] GLFWwindow* window, int button, int action, [[maybe_unused]] int mods)
 {
     if (button == GLFW_MOUSE_BUTTON_LEFT)
     {
@@ -142,7 +142,7 @@ static void mouseButtonCallback(GLFWwindow* window, int button, int action, int 
     }
 }
 
-static void scrollCallback(GLFWwindow* window, double x_offset, double y_offset)
+static void scrollCallback([[maybe_unused]] GLFWwindow* window, [[maybe_unused]] double x_offset, [[maybe_unused]] double y_offset)
 {
 }
 
@@ -204,7 +204,7 @@ std::vector<uint32_t> generateIndices(size_t width, size_t height) {
     return indices;
 }
 
-int main(int argc, char ** argv) {
+int main() {
     Grid2D parameterField{Grid2D::fromBMP("param.bmp")};
     
     const size_t maxOctaves = 10;

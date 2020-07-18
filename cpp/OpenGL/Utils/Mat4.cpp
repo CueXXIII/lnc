@@ -43,6 +43,11 @@ Mat4::Mat4(const Vec3& e1, float e14, const Vec3& e2, float e24, const Vec3& e3,
 {
 }
 
+Mat4 &Mat4::operator=(Mat4 other) noexcept {
+	std::swap(e, other.e);
+	return *this;
+}
+
 const std::string Mat4::toString() const {
 	std::stringstream s;
 	s << "[" << e[0] << ", " << e[1] << ", " << e[2] << ", " << e[3] << std::endl <<

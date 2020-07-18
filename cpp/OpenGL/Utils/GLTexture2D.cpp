@@ -48,7 +48,7 @@ GLTexture2D& GLTexture2D::operator=(GLTexture2D other) {
     return *this;
 }
 
-const GLint GLTexture2D::getId() const {
+GLint GLTexture2D::getId() const {
 	return id;
 }
 

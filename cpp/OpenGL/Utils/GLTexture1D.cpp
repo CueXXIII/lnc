@@ -46,7 +46,7 @@ GLTexture1D::~GLTexture1D() {
 }
 
 
-const GLint GLTexture1D::getId() const {
+GLint GLTexture1D::getId() const {
 	return id;
 }
 

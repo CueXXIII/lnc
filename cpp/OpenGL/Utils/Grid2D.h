@@ -17,6 +17,8 @@ public:
     Grid2D(size_t width, size_t height);
     Grid2D(const Grid2D& other);
 
+    Grid2D &operator=(Grid2D other) noexcept;
+
     size_t getWidth() const;
     size_t getHeight() const;
     std::string toString() const;

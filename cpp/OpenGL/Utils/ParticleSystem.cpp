@@ -56,7 +56,7 @@ void ParticleSystem::update(float t) {
 	const float deltaT = t-lastT;
 	lastT = t;
 #pragma omp parallel for
-	for (int i = 0; i < particles.size();++i) {		
+	for (std::size_t i = 0; i < particles.size();++i) {
 		particles[i].update(deltaT);
 		if (particles[i].isDead() && getAutoRestart()) {
 			particles[i].restart(computeStart(), computeDirection(), acceleration, computeColor(color), 1.0f, maxAge*Rand::rand01());
@@ -91,13 +91,14 @@ Vec3 ParticleSystem::computeDirection() const {
 			return Vec3::randomPointInSphere() * radius + Vec3{ 0.0f, 0.15f, 0.0f };
 		case MagicChaoticVulcano:
 			radius = (initialSpeedMax - initialSpeedMin).length() * (0.6f + 0.4f * Rand::rand01()) * 0.1f;
-			return Vec3::randomPointInSphere() * radius + Vec3{ 0.04f * cos(floorf(t * 3.5f) * 10.0f),
-																0.05f + 0.2f * (1.2f + cos(floorf(t * 13.0f))) *
+			return Vec3::randomPointInSphere() * radius + Vec3{ 0.04f * std::cos(floorf(t * 3.5f) * 10.0f),
+																0.05f + 0.2f * (1.2f + std::cos(floorf(t * 13.0f))) *
                                                                 0.2f * Rand::rand01(),
-																0.04f * sin(floorf(t * 4.0f) * 20.0f) }
+																0.04f * std::sin(floorf(t * 4.0f) * 20.0f) }
                                                                 *1.0f;
 	}
 
+	throw std::invalid_argument("eruptionType unknown");
 
 	
 }

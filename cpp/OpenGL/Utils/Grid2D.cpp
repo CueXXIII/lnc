@@ -19,6 +19,13 @@ Grid2D::Grid2D(const Grid2D& other) :
     data(other.data)
 {
 }
+
+Grid2D &Grid2D::operator=(Grid2D other) noexcept {
+	width = other.width;
+	height = other.height;
+	std::swap(data, other.data);
+	return *this;
+}
     
 size_t Grid2D::getWidth() const {
     return width;

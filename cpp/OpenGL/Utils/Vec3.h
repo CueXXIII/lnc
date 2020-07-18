@@ -9,6 +9,8 @@ class Vec3 {
 		Vec3();
 		Vec3(float x, float y, float z);
 		Vec3(const Vec3& other);
+
+		Vec3 &operator=(Vec3 other) noexcept;
 		
 		friend std::ostream& operator<<(std::ostream &os, const Vec3& v) {os << v.toString() ; return os;}
 		const std::string toString() const;

@@ -14,7 +14,7 @@ public:
     
 	~GLTexture1D();
 	
-	const GLint getId() const;	
+	GLint getId() const;
 	void setData(const std::vector<GLubyte>& data, uint32_t size, uint32_t componentCount=4);
 		
 private:

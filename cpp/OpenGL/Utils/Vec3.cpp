@@ -17,6 +17,11 @@ Vec3::Vec3(const Vec3& other) :
 	e{other.e}
 {}
 	
+Vec3 &Vec3::operator=(Vec3 other) noexcept {
+	std::swap(e, other.e);
+	return *this;
+}
+
 const std::string Vec3::toString() const {
 	std::stringstream s;
 	s << "[" << e[0] << ", " << e[1] << ", " << e[2] << "]";

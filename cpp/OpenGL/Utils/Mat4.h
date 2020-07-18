@@ -19,6 +19,8 @@ public:
        const Vec3& e3, float e34,
        const Vec3& e4=Vec3(0,0,0), float e44=1);
   Mat4(const Mat4& other);
+
+  Mat4 &operator=(Mat4 other) noexcept;
   
   const std::string toString() const;
   friend std::ostream& operator<<(std::ostream &os, const Mat4& m)  {
